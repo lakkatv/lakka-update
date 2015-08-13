@@ -15,24 +15,26 @@ fi
 
 URL=$MIRROR/${PROJECT}.${ARCH}/$FILE
 
-rm -rf /tmp/Lakka-*
+rm -rf ~/.update/*
 
 echo ":: Downloading upgrade"
-wget -P /tmp/ $URL
+wget -P ~/.update/ $URL
 
-if [ -z "/tmp/$FILE" ]; then
+if [ -z "~/.update/$FILE" ]; then
 	echo "Something went wrong during the download."
 	exit 1
 fi
 
 echo ":: Extracting $FILE"
-tar xf /tmp/$FILE -C /tmp/
+tar xf ~/.update/$FILE -C ~/.update/
 
-if [ -z "/tmp/$FOLDER/target" ]; then
+if [ -z "~/.update/$FOLDER/target" ]; then
 	echo "Something went wrong during the extraction."
 	exit 1
 fi
 
-mv /tmp/$FOLDER/target/* ~/.update/
+mv ~/.update/$FOLDER/target/* ~/.update/
+rm -rf ~/.update/$FILE/
+rm -rf ~/.update/$FOLDER/
 
 echo ":: Done, you can now reboot"
