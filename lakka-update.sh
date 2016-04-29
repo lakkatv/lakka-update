@@ -1,6 +1,6 @@
 #!/bin/bash
 
-MIRROR=http://sources.lakka.tv/nightly
+MIRROR=http://mirror.lakka.tv/nightly
 PROJECT=@PROJECT@
 ARCH=@ARCH@
 
