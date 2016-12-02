@@ -1,11 +1,11 @@
 #!/bin/bash
 
-MIRROR=http://mirror.lakka.tv/nightly
-PROJECT=@PROJECT@
-ARCH=@ARCH@
+source /etc/os-release
 
-FILE=`wget $MIRROR/${PROJECT}.${ARCH}/.index -q -O - | head -1`
-URL=$MIRROR/${PROJECT}.${ARCH}/$FILE
+MIRROR=http://mirror.lakka.tv/nightly
+
+FILE=`wget $MIRROR/${OPENELEC_ARCH}/.index -q -O - | head -1`
+URL=$MIRROR/${OPENELEC_ARCH}/$FILE
 
 rm -rf ~/.update/*
 
